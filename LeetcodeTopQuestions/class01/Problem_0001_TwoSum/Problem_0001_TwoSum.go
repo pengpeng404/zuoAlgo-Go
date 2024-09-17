@@ -1,9 +1,10 @@
 package main
 
-// https://leetcode.com/problems/two-sum/
 func main() {
 
 }
+
+// https://leetcode.com/problems/two-sum/
 func twoSum(nums []int, target int) []int {
 	hp := make(map[int]int)
 	for i := range nums {
