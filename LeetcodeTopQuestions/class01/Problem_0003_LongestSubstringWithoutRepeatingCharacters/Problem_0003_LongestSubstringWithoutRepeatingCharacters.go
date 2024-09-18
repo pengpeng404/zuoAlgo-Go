@@ -1,6 +1,9 @@
 package main
 
+import "fmt"
+
 func main() {
+	fmt.Println(lengthOfLongestSubstring("abcabca"))
 }
 
 // https://leetcode.com/problems/longest-substring-without-repeating-characters/
