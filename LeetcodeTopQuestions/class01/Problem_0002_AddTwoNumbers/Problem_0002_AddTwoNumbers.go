@@ -91,7 +91,7 @@ func reverseListNode(head *ListNode) *ListNode {
 	return pre
 }
 
-func addTwoNumbersContainer(l1 *ListNode, l2 *ListNode) *ListNode {
+/*func addTwoNumbersContainer(l1 *ListNode, l2 *ListNode) *ListNode {
 	arr1 := make([]int, 0)
 	arr2 := make([]int, 0)
 	ans := make([]int, 0)
@@ -145,3 +145,4 @@ func addTwoNumbersContainer(l1 *ListNode, l2 *ListNode) *ListNode {
 	}
 	return head
 }
+*/
