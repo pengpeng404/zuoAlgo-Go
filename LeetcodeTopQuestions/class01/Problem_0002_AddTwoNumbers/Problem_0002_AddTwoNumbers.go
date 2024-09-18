@@ -1,7 +1,23 @@
 package main
 
-func main() {
+import "fmt"
 
+func main() {
+	head1 := &ListNode{Val: 6}
+	head1.Next = &ListNode{Val: 5}
+	head1.Next.Next = &ListNode{Val: 2}
+	head2 := &ListNode{Val: 7}
+	head2.Next = &ListNode{Val: 8}
+	head2.Next.Next = &ListNode{Val: 3}
+	ans := addTwoNumbers(head1, head2)
+	// 256 + 387 = 643
+	// 3 -> 4 -> 6 -> nil
+	for ans != nil {
+		fmt.Print(ans.Val, " -> ")
+		ans = ans.Next
+	}
+	fmt.Print("nil")
+	fmt.Println()
 }
 
 // https://leetcode.com/problems/add-two-numbers/

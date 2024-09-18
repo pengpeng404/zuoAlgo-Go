@@ -3,7 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println(lengthOfLongestSubstring("abcabca"))
+	str := "pengpeng404"
+	// peng40 6
+	fmt.Println(lengthOfLongestSubstring(str))
 }
 
 // https://leetcode.com/problems/longest-substring-without-repeating-characters/

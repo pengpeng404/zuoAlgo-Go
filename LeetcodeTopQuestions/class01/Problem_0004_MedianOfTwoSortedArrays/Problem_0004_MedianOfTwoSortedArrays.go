@@ -1,7 +1,13 @@
 package main
 
-func main() {
+import "fmt"
 
+func main() {
+	arr1 := []int{1, 3, 4, 7, 9}
+	arr2 := []int{3, 6, 7, 8, 10}
+	// 1 3 3 4 6 7 7 8 9 10
+	// (6 + 7) / 2 = 6.5
+	fmt.Println(findMedianSortedArrays(arr1, arr2))
 }
 
 // https://leetcode.com/problems/median-of-two-sorted-arrays/
