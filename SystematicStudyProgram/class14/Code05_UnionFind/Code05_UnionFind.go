@@ -3,13 +3,9 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	"time"
 )
 
 func main() {
-	// 设置随机种子
-	rand.Seed(time.Now().UnixNano())
-
 	// 假设我们测试10000个元素
 	n := 10000
 	uf := newUnionFind(n)
