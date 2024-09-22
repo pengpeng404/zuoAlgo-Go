@@ -1,9 +1,12 @@
 package main
 
-import "strings"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
-
+	fmt.Println(intToRoman(3456))
 }
 
 // https://leetcode.com/problems/integer-to-roman/description/
