@@ -1,7 +1,48 @@
 package main
 
-func main() {
+import (
+	"fmt"
+	"github.com/emirpasic/gods/queues/linkedlistqueue"
+	"github.com/emirpasic/gods/sets/hashset"
+)
 
+func main() {
+	matrix := [][]int{
+		{0, 1, 2},
+		{0, 1, 3},
+		{0, 1, 7},
+		{0, 2, 5},
+		{0, 5, 6},
+		{0, 6, 3},
+		{0, 4, 3},
+		{0, 3, 4},
+	}
+	graph := generateGraph(matrix)
+	root := graph.nodes[1]
+	bfs(root)
+}
+
+// bfs 宽度优先遍历
+func bfs(root *Node) {
+	if root == nil {
+		return
+	}
+	set := hashset.New()
+	queue := linkedlistqueue.New()
+	queue.Enqueue(root)
+	set.Add(root)
+	for !queue.Empty() {
+		cur, _ := queue.Dequeue()
+		curNode := cur.(*Node)
+		fmt.Print(curNode.val)
+		nexts := curNode.nexts
+		for i := range nexts {
+			if !set.Contains(nexts[i]) {
+				set.Add(nexts[i])
+				queue.Enqueue(nexts[i])
+			}
+		}
+	}
 }
 
 func generateGraph(matrix [][]int) *Graph {

@@ -1,7 +1,52 @@
 package main
 
-func main() {
+import (
+	"fmt"
+	"github.com/emirpasic/gods/sets/hashset"
+	"github.com/emirpasic/gods/stacks/linkedliststack"
+)
 
+func main() {
+	matrix := [][]int{
+		{0, 1, 2},
+		{0, 1, 3},
+		{0, 1, 7},
+		{0, 2, 5},
+		{0, 5, 6},
+		{0, 6, 3},
+		{0, 4, 3},
+		{0, 3, 4},
+	}
+	graph := generateGraph(matrix)
+	root := graph.nodes[1]
+	dfs(root)
+}
+
+// dfs 深度优先遍历
+func dfs(root *Node) {
+	if root == nil {
+		return
+	}
+	// 栈中保存的是当前的路径
+	stack := linkedliststack.New()
+	set := hashset.New()
+	stack.Push(root)
+	fmt.Print(root.val)
+	set.Add(root)
+	for !stack.Empty() {
+		cur, _ := stack.Pop()
+		curNode := cur.(*Node)
+		nexts := curNode.nexts
+		for i := range nexts {
+			if !set.Contains(nexts[i]) {
+				stack.Push(curNode)
+				stack.Push(nexts[i])
+				set.Add(nexts[i])
+				fmt.Print(nexts[i].val)
+				break
+			}
+		}
+	}
 }
 
 func generateGraph(matrix [][]int) *Graph {
