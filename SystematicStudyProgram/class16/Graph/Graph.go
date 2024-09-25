@@ -1,7 +1,20 @@
 package main
 
-func main() {
+import "fmt"
 
+func main() {
+	matrix := [][]int{
+		{0, 1, 2},
+		{0, 1, 3},
+		{0, 1, 7},
+		{0, 2, 5},
+		{0, 5, 6},
+		{0, 6, 3},
+		{0, 4, 3},
+		{0, 3, 4},
+	}
+	graph := generateGraph(matrix)
+	graph.PrintGraph()
 }
 
 func generateGraph(matrix [][]int) *Graph {
@@ -66,4 +79,33 @@ func newGraph() *Graph {
 		nodes: make(map[int]*Node),
 		edges: make(map[*Edge]int),
 	}
+}
+
+// 打印Graph结构的信息
+func (g *Graph) PrintGraph() {
+	fmt.Println("Graph Information:")
+
+	// 打印每个节点的信息
+	fmt.Println("Nodes:")
+	for _, node := range g.nodes {
+		fmt.Printf("Node %d: In-degree: %d, Out-degree: %d\n", node.val, node.in, node.out)
+		fmt.Print("  Next nodes: ")
+		for _, next := range node.nexts {
+			fmt.Printf("%d ", next.val)
+		}
+		fmt.Println()
+
+		// 打印当前节点的边
+		fmt.Println("  Edges:")
+		for _, edge := range node.edges {
+			fmt.Printf("    Edge from %d to %d, weight: %d\n", edge.from.val, edge.to.val, edge.weight)
+		}
+	}
+
+	// 打印所有边的信息
+	fmt.Println("Edges:")
+	for edge, weight := range g.edges {
+		fmt.Printf("Edge from %d to %d, weight: %d\n", edge.from.val, edge.to.val, weight)
+	}
+
 }
