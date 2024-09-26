@@ -1,9 +1,13 @@
 package main
 
-import "sort"
+import (
+	"fmt"
+	"sort"
+)
 
 func main() {
-
+	nums := []int{1, 2, -1, -4, 5, -3, 6}
+	fmt.Println(threeSum(nums))
 }
 
 // https://leetcode.com/problems/3sum/description/
