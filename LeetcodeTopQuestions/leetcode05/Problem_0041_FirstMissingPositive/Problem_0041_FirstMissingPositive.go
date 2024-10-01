@@ -1,7 +1,11 @@
 package main
 
-func main() {
+import "fmt"
 
+func main() {
+	nums := []int{1, 2, -1, -4}
+	// 3
+	fmt.Println(firstMissingPositive(nums))
 }
 
 // https://leetcode.com/problems/first-missing-positive/
