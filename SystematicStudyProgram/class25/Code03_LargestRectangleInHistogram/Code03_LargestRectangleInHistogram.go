@@ -1,9 +1,14 @@
 package main
 
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
 func main() {
-
+	nums := []int{2, 1, 5, 6, 2, 3}
+	// 10
+	fmt.Println(largestRectangleArea(nums))
 }
 
 // 单调栈 找到左边比 i 小的 右边比 i 小的 之间的范围就是大于等于 i 位置数的范围
