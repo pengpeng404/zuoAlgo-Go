@@ -44,9 +44,11 @@ func heapSort(arr []int) {
 	}
 	heapSize := len(arr)
 	// 1、建立大根堆
+	// N*logN
 	//for i := 0; i < len(arr); i++ {
 	//	heapInsert(arr, i)
 	//}
+	// N
 	for i := len(arr) - 1; i >= 0; i-- {
 		heapify(arr, i, heapSize)
 	}
